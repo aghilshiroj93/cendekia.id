@@ -1,7 +1,16 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+'use client';
+import { useState, useEffect } from 'react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { getInfo } from '@/lib/storage';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+  const [info, setInfo] = useState({ address: '', phone: '', email: '', hours: '' });
+
+  useEffect(() => {
+    setInfo(getInfo());
+  }, []);
+
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -12,33 +21,45 @@ export default function Footer() {
               <h3>CENDEKIA<span>.ID</span></h3>
             </div>
             <p className={styles.tagline}>
-              Membangun masa depan digital dengan kecerdasan dan profesionalisme. Solusi terbaik untuk kebutuhan IT dan Akademik Anda.
+              Solusi digital cerdas untuk Website, Android, Data Science, dan kebutuhan Akademik Anda.
             </p>
           </div>
-          
+
           <div className={styles.infoSection}>
             <h4>Layanan Kami</h4>
             <ul>
-              <li>Website & Web App</li>
-              <li>Aplikasi Android</li>
-              <li>Data Science & Analytics</li>
-              <li>Bantuan Jurnal & Skripsi</li>
+              <li>Website Development</li>
+              <li>Android Development</li>
+              <li>Data Science Analysis</li>
+              <li>Bantuan Akademik</li>
             </ul>
           </div>
 
           <div className={styles.infoSection}>
             <h4>Kontak & Lokasi</h4>
             <ul className={styles.contactList}>
-              <li><MapPin size={18} /> Jl. Teknologi No. 45, Yogyakarta, Indonesia</li>
-              <li><Phone size={18} /> +62 812-3456-7890</li>
-              <li><Mail size={18} /> halo@cendekia.id</li>
-              <li><Clock size={18} /> Sen - Sab: 08.00 - 21.00</li>
+              <li>
+                <MapPin size={18} />
+                <span>{info.address}</span>
+              </li>
+              <li>
+                <Phone size={18} />
+                <span>+{info.phone}</span>
+              </li>
+              <li>
+                <Mail size={18} />
+                <span>{info.email}</span>
+              </li>
+              <li>
+                <Clock size={18} />
+                <span>{info.hours}</span>
+              </li>
             </ul>
           </div>
         </div>
         
         <div className={styles.bottomBar}>
-          <p>&copy; {new Date().getFullYear()} CENDEKIA.ID - Digital Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CENDEKIA.ID - All Rights Reserved.</p>
         </div>
       </div>
     </footer>

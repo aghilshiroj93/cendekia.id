@@ -1,24 +1,24 @@
 .adminContainer {
   display: flex;
   min-height: 100vh;
-  background-color: #f1f5f9;
+  background-color: #f8fafc;
 }
 
 .sidebar {
   width: 260px;
-  background-color: #1e293b;
-  color: white;
+  background-color: white;
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   position: fixed;
   height: 100vh;
-  left: 0;
-  top: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
 }
 
 .sidebarHeader {
-  padding: var(--space-lg);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 .sidebarHeader h2 span {
@@ -27,50 +27,111 @@
 
 .nav {
   flex: 1;
-  padding: var(--space-md) 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .navItem {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: 0.75rem var(--space-lg);
-  color: #cbd5e1;
-  transition: var(--transition-fast);
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
 }
 
-.navItem:hover, .active {
-  background-color: rgba(255,255,255,0.05);
-  color: white;
-  border-left: 3px solid var(--primary);
+.navItem:hover {
+  background-color: #f1f5f9;
+  color: var(--primary);
+}
+
+.active {
+  background-color: #fff7ed;
+  color: var(--primary);
 }
 
 .sidebarFooter {
-  padding: var(--space-lg);
-  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .logout {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 12px;
   color: #ef4444;
+  font-weight: 500;
 }
 
 .mainContent {
   flex: 1;
   margin-left: 260px;
-  padding: var(--space-xl);
+  padding: 40px;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+  .mainContent {
+    margin-left: 200px;
+  }
 }
 
 @media (max-width: 768px) {
+  .adminContainer {
+    flex-direction: column;
+  }
+  
   .sidebar {
-    width: 70px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
-  .sidebar h2, .navItem span, .logout span {
-    display: none;
+  
+  .nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 15px;
   }
+  
+  .navItem {
+    padding: 10px;
+    white-space: nowrap;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.75rem;
+  }
+  
+  .navItem span {
+    display: block;
+  }
+  
   .mainContent {
-    margin-left: 70px;
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  .sidebarHeader {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .sidebarHeader > div {
+    justify-content: center;
+  }
+  
+  .sidebarFooter {
+    display: none; /* Sembunyikan footer sidebar di mobile untuk hemat ruang */
   }
 }
