@@ -24,15 +24,23 @@
 }
 
 .logoIcon {
-  width: 35px;
-  height: 35px;
-  background: var(--primary);
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  margin-right: 12px;
+  transition: var(--transition-normal);
+}
+
+.logo:hover .logoIcon {
+  transform: rotate(-5deg) scale(1.05);
 }
 
 .logo span {

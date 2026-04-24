@@ -8,7 +8,7 @@ export default function Footer() {
         <div className={styles.grid}>
           <div className={styles.brandSection}>
             <div className={styles.logo}>
-              <img src="/images/logo.jpeg" alt="Logo" style={{ width: '40px', height: '40px' }} />
+              <div className={styles.logoIcon}>C</div>
               <h3>CENDEKIA<span>.ID</span></h3>
             </div>
             <p className={styles.tagline}>

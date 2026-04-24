@@ -40,7 +40,7 @@ export default function AdminLayout({ children }) {
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-             <img src="/images/logo.jpeg" alt="Logo" style={{ width: '35px', height: '35px' }} />
+             <div style={{ width: '38px', height: '38px', background: 'linear-gradient(135deg, var(--primary), var(--accent))', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px', fontWeight: '800', fontSize: '1.4rem', boxShadow: '0 4px 10px rgba(245, 158, 11, 0.2)' }}>C</div>
              <h2 style={{ fontSize: '1.2rem', margin: 0 }}>CENDEKIA<span>.ID</span></h2>
           </div>
         </div>
