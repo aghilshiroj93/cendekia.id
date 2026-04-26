@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LayoutDashboard, Globe, Share2, LogOut, Briefcase, Info } from 'lucide-react';
+import { LayoutDashboard, Globe, Share2, LogOut, Briefcase, Info, MessageSquare } from 'lucide-react';
 import styles from './AdminLayout.module.css';
 
 export default function AdminLayout({ children }) {
