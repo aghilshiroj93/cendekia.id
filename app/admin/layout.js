@@ -57,6 +57,10 @@ export default function AdminLayout({ children }) {
             <Briefcase size={20} />
             <span>Kelola Portofolio</span>
           </Link>
+          <Link href="/admin/testimonials" className={`${styles.navItem} ${pathname === '/admin/testimonials' ? styles.active : ''}`}>
+            <MessageSquare size={20} />
+            <span>Kelola Testimoni</span>
+          </Link>
           <Link href="/admin/social" className={`${styles.navItem} ${pathname === '/admin/social' ? styles.active : ''}`}>
             <Share2 size={20} />
             <span>Kelola Sosmed</span>
