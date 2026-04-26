@@ -15,13 +15,37 @@ export default function AdminLayout({ children }) {
     
     if (!token && pathname !== '/admin/login') {
       router.push('/admin/login');
-    } else {
-      setIsAuthorized(true);
+      return;
+    } 
+    
+    setIsAuthorized(true);
+
+    // Fitur Auto-Logout 5 Menit Inaktivitas
+    let timeout;
+    const resetTimer = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        handleLogout();
+        alert('Sesi Anda telah berakhir karena inaktivitas selama 5 menit.');
+      }, 300000); // 5 menit (300.000 ms)
+    };
+
+    if (token) {
+      window.addEventListener('mousemove', resetTimer);
+      window.addEventListener('keydown', resetTimer);
+      resetTimer();
     }
+
+    return () => {
+      window.removeEventListener('mousemove', resetTimer);
+      window.removeEventListener('keydown', resetTimer);
+      clearTimeout(timeout);
+    };
   }, [pathname, router]);
 
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
+    setIsAuthorized(false);
     router.push('/admin/login');
   };
 
