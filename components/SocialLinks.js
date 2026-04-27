@@ -48,7 +48,7 @@ export default function SocialLinks() {
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '15px', width: '100%' }}
+                style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}
               >
                 <div className={styles.icon}>{ICON_MAP[link.platform] || <MessageCircle size={24} />}</div>
                 <span className={styles.name}>{link.name}</span>
