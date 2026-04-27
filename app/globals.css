@@ -145,7 +145,7 @@ button {
 @keyframes slideUp {
   from { 
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to { 
     opacity: 1;
@@ -156,7 +156,7 @@ button {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -165,19 +165,31 @@ button {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0 !important;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .reveal.active {
-  opacity: 1;
+  opacity: 1 !important;
   transform: translateY(0);
 }
 
-.animate-fade-in { animation: fadeIn 1.2s ease-out forwards; }
-.animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-.animate-scale-in { animation: scaleIn 0.8s ease-out forwards; }
+.animate-fade-in { 
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards; 
+}
+
+.animate-slide-up { 
+  opacity: 0;
+  animation: slideUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; 
+}
+
+.animate-scale-in { 
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out forwards; 
+}
 
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }

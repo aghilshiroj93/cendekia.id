@@ -9,11 +9,13 @@ export default function ScrollReveal({ children, className = "" }) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            setTimeout(() => {
+              entry.target.classList.add('active');
+            }, 100);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     );
 
     if (elementRef.current) {
