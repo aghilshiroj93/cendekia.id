@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { X, ExternalLink } from 'lucide-react';
 import { getPortfolio } from '@/lib/storage';
+import ScrollReveal from './ScrollReveal';
 import styles from './Portfolio.module.css';
 
 export default function Portfolio() {
@@ -27,13 +28,13 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className={`${styles.portfolio} section`}>
       <div className="container">
-        <div className={styles.header}>
+        <ScrollReveal className={styles.header}>
           <h2 className={styles.title}>Portofolio Unggulan</h2>
           <p className={styles.subtitle}>Hasil karya terbaik kami untuk klien yang cerdas.</p>
-        </div>
+        </ScrollReveal>
         <div className={styles.grid}>
           {projects.map((project, index) => (
-            <div key={index} className={styles.projectCard} onClick={() => openDetail(project)}>
+            <ScrollReveal key={index} className={styles.projectCard} onClick={() => openDetail(project)}>
               <div className={styles.imageWrapper}>
                 <img src={project.image} alt={project.title} className={styles.image} />
                 <div className={styles.overlay}>
@@ -42,7 +43,7 @@ export default function Portfolio() {
                   <span className={styles.viewLink}>Klik untuk Detail</span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
-'use client';
-import { useState, useEffect } from 'react';
 import { Quote } from 'lucide-react';
 import { getTestimonials } from '@/lib/storage';
+import ScrollReveal from './ScrollReveal';
 import styles from './Testimonials.module.css';
 
 export default function Testimonials() {
@@ -16,14 +15,14 @@ export default function Testimonials() {
   return (
     <section className="section" style={{ background: '#fcfcfc' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
+        <ScrollReveal style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
           <h2 style={{ fontSize: '2.5rem' }}>Apa Kata Klien Kami?</h2>
           <p style={{ color: 'var(--secondary)' }}>Kepuasan klien adalah prioritas utama CENDEKIA.ID.</p>
-        </div>
+        </ScrollReveal>
         
         <div className={styles.grid}>
           {testimonials.map((t) => (
-            <div key={t.id} className={styles.card}>
+            <ScrollReveal key={t.id} className={styles.card}>
               <Quote className={styles.icon} />
               <p className={styles.content}>{t.content}</p>
               <div className={styles.footer}>
@@ -33,7 +32,7 @@ export default function Testimonials() {
                   <p className={styles.role}>{t.role}</p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

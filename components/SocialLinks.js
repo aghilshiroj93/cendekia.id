@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { getSocials } from '@/lib/storage';
+import ScrollReveal from './ScrollReveal';
 import styles from './SocialLinks.module.css';
 
 const ICON_MAP = {
@@ -32,23 +33,27 @@ export default function SocialLinks() {
   return (
     <section id="social" className={`${styles.social} section`}>
       <div className="container">
-        <div className={styles.header}>
+        <ScrollReveal className={styles.header}>
           <h2 className={styles.title}>Hubungi Kami</h2>
           <p className={styles.subtitle}>Konsultasi gratis untuk proyek Anda sekarang juga.</p>
-        </div>
+        </ScrollReveal>
         <div className={styles.links}>
           {socials.map((link, index) => (
-            <a 
+            <ScrollReveal 
               key={index} 
-              href={link.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
               className={styles.linkCard}
               style={{ '--hover-color': link.color }}
             >
-              <div className={styles.icon}>{ICON_MAP[link.platform] || <MessageCircle size={24} />}</div>
-              <span className={styles.name}>{link.name}</span>
-            </a>
+              <a 
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '15px', width: '100%' }}
+              >
+                <div className={styles.icon}>{ICON_MAP[link.platform] || <MessageCircle size={24} />}</div>
+                <span className={styles.name}>{link.name}</span>
+              </a>
+            </ScrollReveal>
           ))}
         </div>
       </div>

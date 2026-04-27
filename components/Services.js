@@ -9,6 +9,7 @@ import {
   Presentation 
 } from 'lucide-react';
 import { getServices } from '@/lib/storage';
+import ScrollReveal from './ScrollReveal';
 import styles from './Services.module.css';
 
 const ICON_MAP = {
@@ -32,17 +33,17 @@ export default function Services() {
   return (
     <section id="services" className="section">
       <div className="container">
-        <div className={styles.header}>
+        <ScrollReveal className={styles.header}>
           <h2 className={styles.title}>Layanan Kami</h2>
           <p className={styles.subtitle}>Solusi lengkap untuk kebutuhan digital dan akademik Anda.</p>
-        </div>
+        </ScrollReveal>
         <div className={styles.grid}>
           {services.map((service, index) => (
-            <div key={index} className={`${styles.card} card`}>
+            <ScrollReveal key={index} className={`${styles.card} card`}>
               <div className={styles.icon}>{ICON_MAP[service.icon] || <Globe size={32} />}</div>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.description}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
