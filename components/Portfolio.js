@@ -34,7 +34,11 @@ export default function Portfolio() {
         </ScrollReveal>
         <div className={styles.grid}>
           {projects.map((project, index) => (
-            <ScrollReveal key={index} className={styles.projectCard} onClick={() => openDetail(project)}>
+            <ScrollReveal 
+              key={index} 
+              className={`${styles.projectCard} delay-${(index % 5) + 1}`} 
+              onClick={() => openDetail(project)}
+            >
               <div className={styles.imageWrapper}>
                 <img src={project.image} alt={project.title} className={styles.image} />
                 <div className={styles.overlay}>

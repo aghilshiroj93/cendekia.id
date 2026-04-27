@@ -41,7 +41,7 @@ export default function SocialLinks() {
           {socials.map((link, index) => (
             <ScrollReveal 
               key={index} 
-              className={styles.linkCard}
+              className={`${styles.linkCard} delay-${(index % 5) + 1}`}
               style={{ '--hover-color': link.color }}
             >
               <a 

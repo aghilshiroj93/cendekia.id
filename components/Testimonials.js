@@ -23,8 +23,11 @@ export default function Testimonials() {
         </ScrollReveal>
         
         <div className={styles.grid}>
-          {testimonials.map((t) => (
-            <ScrollReveal key={t.id} className={styles.card}>
+          {testimonials.map((t, index) => (
+            <ScrollReveal 
+              key={t.id} 
+              className={`${styles.card} delay-${(index % 5) + 1}`}
+            >
               <Quote className={styles.icon} />
               <p className={styles.content}>{t.content}</p>
               <div className={styles.footer}>

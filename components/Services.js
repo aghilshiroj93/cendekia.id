@@ -39,7 +39,10 @@ export default function Services() {
         </ScrollReveal>
         <div className={styles.grid}>
           {services.map((service, index) => (
-            <ScrollReveal key={index} className={`${styles.card} card`}>
+            <ScrollReveal 
+              key={index} 
+              className={`${styles.card} card delay-${(index % 5) + 1}`}
+            >
               <div className={styles.icon}>{ICON_MAP[service.icon] || <Globe size={32} />}</div>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.description}</p>
